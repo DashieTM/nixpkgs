@@ -28,6 +28,13 @@ let
       RUSTC_BOOTSTRAP = true;
     };
   };
+  xbuild = {
+    pname = "xbuild";
+    inherit version src;
+    cargoExtraArgs = "--bin xtask";
+    doCheck = false;
+    meta.mainProgram = "xbuild";
+  };
 in
 vimUtils.buildVimPlugin {
   pname = "blink.cmp";
